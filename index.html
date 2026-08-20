@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>Photo Booth · Fly a bird with your finger</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italiana&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body class="app-body">
+    <!-- permission gate (shown until user opts in) -->
+    <div class="gate" id="gate">
+        <div class="gate__mist" aria-hidden="true"></div>
+
+        <div class="gate__card">
+            <div class="gate__bird" aria-hidden="true">
+                <!-- Long-tailed blue magpie: side profile, elegant
+                     sweeping tail streaming to the lower-left. -->
+                <svg viewBox="0 0 460 340" width="420" height="320" fill="none">
+                    <defs>
+                        <linearGradient id="crownBlue" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%"  stop-color="#94a8c9"/>
+                            <stop offset="55%" stop-color="#3f5a8e"/>
+                            <stop offset="100%" stop-color="#1e2e60"/>
+                        </linearGradient>
+                        <linearGradient id="backBlue" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%"  stop-color="#6a85af"/>
+                            <stop offset="55%" stop-color="#3f5a8e"/>
+                            <stop offset="100%" stop-color="#1e2e60"/>
+                        </linearGradient>
+                        <linearGradient id="wingBlue" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%"  stop-color="#94a8c9"/>
+                            <stop offset="50%" stop-color="#3f5a8e"/>
+                            <stop offset="100%" stop-color="#141f4a"/>
+                        </linearGradient>
+                        <linearGradient id="tailBlue" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%"  stop-color="#3f5a8e"/>
+                            <stop offset="45%" stop-color="#4a6a9d"/>
+                            <stop offset="100%" stop-color="#4a6a9d" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="tailInner" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%"  stop-color="#b8c6de"/>
+                            <stop offset="55%" stop-color="#6a85af" stop-opacity="0.8"/>
+                            <stop offset="100%" stop-color="#6a85af" stop-opacity="0"/>
+                        </linearGradient>
+                        <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+                            <stop offset="0%" stop-color="#dfe6f2" stop-opacity="0.7"/>
+                            <stop offset="100%" stop-color="#dfe6f2" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- soft halo -->
+                    <ellipse cx="260" cy="180" rx="220" ry="140" fill="url(#halo)"/>
+
+                    <!-- long trailing tail (three sweeping feathers) -->
+                    <!-- outer / longest feather -->
+                    <path d="M300 200
+                             C 240 220, 160 245, 80 285
+                             C 60 300, 44 316, 28 328
+                             C 46 322, 66 314, 92 302
+                             C 170 268, 236 240, 306 214 Z"
+                          fill="url(#tailBlue)" opacity="0.95"/>
+                    <!-- middle feather -->
+                    <path d="M304 196
+                             C 244 208, 168 224, 96 254
+                             C 78 262, 60 274, 46 284
+                             C 68 280, 92 274, 122 262
+                             C 194 236, 258 218, 312 208 Z"
+                          fill="url(#tailBlue)" opacity="0.85"/>
+                    <!-- upper feather with lighter core -->
+                    <path d="M308 192
+                             C 260 198, 200 208, 148 224
+                             C 130 230, 114 238, 104 244
+                             C 128 240, 158 234, 188 226
+                             C 240 214, 288 204, 316 200 Z"
+                          fill="url(#tailInner)" opacity="0.9"/>
+                    <!-- soft wispy filaments beyond feather tips -->
+                    <g stroke="#4a6a9d" stroke-linecap="round" fill="none">
+                        <path d="M40 314 C 60 306, 82 296, 108 286" stroke-width="1.4" opacity="0.55"/>
+                        <path d="M28 328 C 60 316, 92 302, 122 288" stroke-width="1.6" opacity="0.6"/>
+                        <path d="M60 296 C 84 286, 108 278, 138 268" stroke-width="1.2" opacity="0.5"/>
+                    </g>
+
+                    <!-- body (soft misty pale-blue belly) -->
+                    <ellipse cx="322" cy="188" rx="46" ry="34" fill="#dfe6f2"/>
+
+                    <!-- back / mantle (blue on top) -->
+                    <path d="M280 188
+                             Q 288 148 322 148
+                             Q 356 148 364 188
+                             Q 356 200 322 202
+                             Q 290 200 280 188 Z"
+                          fill="url(#backBlue)"/>
+
+                    <!-- folded wing -->
+                    <path d="M296 190
+                             Q 302 168 336 170
+                             Q 366 172 370 194
+                             Q 366 208 348 210
+                             Q 322 210 302 202
+                             Q 294 198 296 190 Z"
+                          fill="url(#wingBlue)"/>
+                    <!-- wing highlight streaks -->
+                    <g stroke="#b8c6de" stroke-linecap="round" stroke-width="1.2" opacity="0.55">
+                        <path d="M310 188 Q 328 180 358 184"/>
+                        <path d="M310 196 Q 330 190 360 194"/>
+                    </g>
+
+                    <!-- head -->
+                    <circle cx="368" cy="150" r="26" fill="#dfe6f2"/>
+                    <!-- blue crown -->
+                    <path d="M346 150
+                             Q 348 122 372 118
+                             Q 396 122 394 150
+                             Q 372 142 346 150 Z"
+                          fill="url(#crownBlue)"/>
+                    <!-- black eye stripe (magpie hallmark) -->
+                    <path d="M348 154
+                             Q 372 148 394 156
+                             Q 388 164 372 164
+                             Q 354 164 348 154 Z"
+                          fill="#1a1f30"/>
+                    <!-- eye -->
+                    <circle cx="384" cy="156" r="2.4" fill="#b8c6de"/>
+                    <circle cx="384.4" cy="155.6" r="1" fill="#080b18"/>
+                    <!-- beak -->
+                    <path d="M392 158 L 410 160 L 392 164 Z" fill="#141a2c"/>
+                    <path d="M392 160 L 402 160 L 392 162 Z" fill="#334066"/>
+
+                    <!-- soft chest shadow -->
+                    <ellipse cx="316" cy="204" rx="30" ry="14"
+                             fill="#b8c6de" opacity="0.4"/>
+                    <!-- delicate tucked feet -->
+                    <g stroke="#1e2e60" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.65">
+                        <path d="M312 218 L 314 226"/>
+                        <path d="M326 218 L 328 226"/>
+                    </g>
+
+                    <!-- dusty blue sparkles around the bird -->
+                    <g stroke-width="1.4" stroke-linecap="round">
+                        <path d="M52 90 l -4 0 M52 90 l 4 0 M52 90 l 0 -4 M52 90 l 0 4"        stroke="#3f5a8e" opacity="0.85"/>
+                        <path d="M420 90 l -3 0 M420 90 l 3 0 M420 90 l 0 -3 M420 90 l 0 3"    stroke="#6a85af" opacity="0.85"/>
+                        <path d="M180 60 l -2.5 0 M180 60 l 2.5 0 M180 60 l 0 -2.5 M180 60 l 0 2.5" stroke="#94a8c9" opacity="0.85"/>
+                        <path d="M410 200 l -2.5 0 M410 200 l 2.5 0 M410 200 l 0 -2.5 M410 200 l 0 2.5" stroke="#8ea1c1" opacity="0.75"/>
+                        <path d="M240 30 l -2 0 M240 30 l 2 0 M240 30 l 0 -2 M240 30 l 0 2"    stroke="#4a6690" opacity="0.8"/>
+                    </g>
+                </svg>
+            </div>
+
+            <p class="gate__body">
+                Wave your finger in front of the camera.<br />
+                A little blue bird will follow you.<br />
+                Trace the word to reveal your surprise.
+            </p>
+
+            <button class="gate__btn" id="startBtn" type="button">
+                Enable camera &amp; sound
+            </button>
+
+            <p class="gate__foot">
+                Nothing is recorded. Everything runs in your browser.
+            </p>
+            <p class="gate__error" id="gateError"></p>
+        </div>
+    </div>
+
+    <!-- camera + drawing layers -->
+    <video
+        class="video-layer"
+        id="videoEl"
+        playsinline
+        muted
+        autoplay
+    ></video>
+    <canvas class="paint-canvas" id="paintCanvas"></canvas>
+
+    <!-- main chrome (hidden until gate is dismissed) -->
+    <main class="app app--live is-hidden" id="app">
+        <header class="app-topbar">
+            <span class="app-topbar__title">For Lucy</span>
+            <span class="app-topbar__sub" id="handStatus">looking for your hand…</span>
+        </header>
+
+        <div class="viewfinder-badge">
+            <span class="rec-dot"></span> LIVE
+        </div>
+
+        <footer class="app-controls">
+            <div class="effects-tray" role="radiogroup" aria-label="brush effect">
+                <button class="effect-btn is-active" data-stamp="birds" role="radio" aria-checked="true" title="Sparks">
+                    <span class="effect-btn__glyph">❋</span>
+                </button>
+                <button class="effect-btn" data-stamp="hearts" role="radio" aria-checked="false" title="Hearts">
+                    <span class="effect-btn__glyph">♡</span>
+                </button>
+                <button class="effect-btn" data-stamp="flowers" role="radio" aria-checked="false" title="Petals">
+                    <span class="effect-btn__glyph">✿</span>
+                </button>
+                <button class="effect-btn" data-stamp="stars" role="radio" aria-checked="false" title="Stars">
+                    <span class="effect-btn__glyph">✧</span>
+                </button>
+                <button class="effect-btn" data-stamp="notes" role="radio" aria-checked="false" title="Notes">
+                    <span class="effect-btn__glyph">♪</span>
+                </button>
+            </div>
+
+            <div class="shutter" id="shutter" aria-label="capture surprise">
+                <svg class="shutter__ring" viewBox="0 0 100 100" aria-hidden="true">
+                    <circle class="shutter__track" cx="50" cy="50" r="46" />
+                    <circle class="shutter__progress" id="shutterProgress" cx="50" cy="50" r="46" />
+                </svg>
+                <button class="shutter__btn" id="shutterBtn" type="button" disabled>
+                    <span class="shutter__inner"></span>
+                </button>
+            </div>
+
+            <div class="side-controls">
+                <button class="icon-btn" id="muteBtn" type="button" aria-label="Mute" title="Mute / unmute">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+                </button>
+                <button class="icon-btn" id="resetBtn" type="button" aria-label="Reset" title="Reset">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                </button>
+            </div>
+        </footer>
+
+        <p class="status-line" id="statusLine">
+            point your finger at the camera to begin
+        </p>
+    </main>
+
+    <script src="scripts/photobooth.js"></script>
+</body>
+</html>

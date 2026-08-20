@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050510" />
+    <title>Happy Birthday, Lucy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Italiana&family=Noto+Serif+SC:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/surprise.css" />
+</head>
+<body class="surprise-body">
+    <!-- background slideshow -->
+    <div class="slideshow" id="slideshow" aria-hidden="true">
+        <div class="slide is-active"
+             style="background-image: url('assets/photo-snow.jpg')"></div>
+        <div class="slide"
+             style="background-image: url('assets/photo-arch.jpg')"></div>
+        <div class="slide"
+             style="background-image: url('assets/photo-beach.jpg')"></div>
+        <div class="slide"
+             style="background-image: url('assets/photo-window.jpg')"></div>
+        <div class="slide"
+             style="background-image: url('assets/photo-grad.jpg')"></div>
+    </div>
+
+    <!-- cinematic overlays -->
+    <div class="dim-layer"    aria-hidden="true"></div>
+    <div class="vignette"     aria-hidden="true"></div>
+    <div class="mist"         aria-hidden="true"></div>
+    <div class="grain"        aria-hidden="true"></div>
+    <div class="letterbox letterbox--top"    aria-hidden="true"></div>
+    <div class="letterbox letterbox--bottom" aria-hidden="true"></div>
+
+    <!-- scrollable letter -->
+    <main class="letter">
+        <!-- hero -->
+        <section class="letter__hero">
+            <span class="letter__ornament" aria-hidden="true">✦ &nbsp;·&nbsp; ✦</span>
+            <h1 class="letter__title">Happy Birthday</h1>
+            <p class="letter__dedication">for my Lucy</p>
+            <p class="letter__song" id="songLabel">
+                <span class="song-note">♪</span>
+                <span class="song-text">Lana Del Rey&nbsp;—&nbsp;<em>Love</em></span>
+            </p>
+            <span class="letter__scroll" aria-hidden="true">
+                <span class="letter__scroll-line"></span>
+                scroll
+            </span>
+        </section>
+
+        <!-- letter body -->
+        <section class="letter__body">
+            <p class="letter__para letter__para--cn reveal-el">
+                小Lucy，又长大一岁啦。这一年我们一起经历了好多好多——
+                有开心的，有狼狈的，有莫名其妙的，也有那些只有你自己
+                知道的时刻。但不管怎么样，你还是一步一步走到了今天，
+                成为了现在这个可爱、有力量的你。
+            </p>
+
+            <p class="letter__para letter__para--cn reveal-el">
+                所以24岁，我不希望你一定要变得多厉害、多成熟，
+                或者一定要完成什么了不起的事情。我只希望你
+                可以快乐一点，再快乐一点。
+            </p>
+
+            <p class="letter__para letter__para--cn reveal-el">
+                想做什么就去做，想吃什么就去吃，想见的人就去见。
+                偶尔迷茫也没关系，偶尔摆烂也没关系——
+                人生本来就不是一条笔直的路呀。
+            </p>
+
+            <p class="letter__poem reveal-el">
+                新的一岁，<br>
+                不用急着成为更好的人。<br>
+                <em>先成为一个更快乐的人吧。</em>
+            </p>
+
+            <p class="letter__close reveal-el">
+                Happy Birthday, my girl —<br>
+                <span class="letter__close-line">
+                    embrace a happier, and braver <span class="age">24</span> <span class="glass">🥂</span>
+                </span>
+            </p>
+
+            <p class="letter__signature reveal-el">
+                <span class="letter__signature-love">Love,</span>
+                <span class="letter__signature-name">Maxi</span>
+            </p>
+
+            <div class="letter__end reveal-el" aria-hidden="true">
+                <span class="letter__end-ornament">✦</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- music: local MP3, tries to autoplay; falls back to the
+         visible Play button + first user gesture on the page. -->
+    <audio id="loveAudio" src="assets/love.mp3" preload="auto" loop></audio>
+
+    <button class="music-btn" id="musicBtn" type="button" aria-label="Play music">
+        <span class="music-btn__icon" id="musicIcon">▶</span>
+        <span class="music-btn__label" id="musicLabel">play</span>
+    </button>
+
+    <!-- retake -->
+    <a class="retake-btn" href="index.html">
+        <span class="retake-btn__glyph">↺</span>
+        <span class="retake-btn__label">retake</span>
+    </a>
+
+    <script src="scripts/surprise.js"></script>
+</body>
+</html>
